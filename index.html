@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<script>
+    class Mobile {
+        constructor(draft,inbox,sent) {
+            this.battery=100;
+            this.draft= draft;
+            this.inbox=inbox;
+            this.sent=sent;
+        }
+        checkStatus(){
+            this.battery--;
+            return this.battery>0
+
+        }
+        textMessenger(text){
+            this.draft=text
+            this.battery--;
+        }
+        sendMessenger(iphone){
+            iphone.inbox.push(this.draft);
+            this.sent.push(this.draft);
+            this.draft="";
+            this.battery--;
+            iphone.battery--;
+        }
+        showInbox(){
+            this.battery--;
+            return this.inbox;
+        }
+        showSent(){
+            this.battery--;
+            return this.sent;
+        }
+    }
+    let nokia=new Mobile("",[],[]);
+    let iphone=new Mobile("",[],[]);
+</script>
+</body>
+</html>
